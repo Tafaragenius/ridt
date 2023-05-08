@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from datetime import datetime
 
 class user(models.Model):
     profile_picture = models.ImageField(upload_to='profile_picture/',blank=True,null=True)
@@ -19,6 +20,7 @@ class TimeStampedModel(models.Model):
 class Blog(TimeStampedModel):
     title = models.CharField(max_length=255)
     content = models.TextField()
+    created_at = models.DateTimeField(default = datetime.now, blank=True)
     
 class Comment(TimeStampedModel):
     blog = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name='comments')

@@ -66,3 +66,5 @@ def delete_comment(request, comment_id):
 def admin_user(request):
     users = User.objects.all()
     return render(request, 'admin-user.html',{'users'})
+
+

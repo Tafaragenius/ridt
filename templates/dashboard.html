@@ -2,27 +2,28 @@
 {% block title %}Blog{% endblock title %}
 {% block body %}
 <div class = 'container' mt-4>
+  <div class = 'row'>
+    <div class = 'col-md-4' bg-light>
+    
+    </div>
+    <div class = 'col-md-15' mt-3>
+    <h2 class = 'text-black'>BLOG</h2>
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col">
           <div class="card h-100">
-            <img src="..." class="card-img-top" alt="...">
+            {% for blog in blogs %}
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <h5 class="card-title">{{blog.title}}</h5>
+              <p class="card-text">{{blog.content}}.</p>
+              <p class="card-text">{{blog.created_at}}.</p>
             </div>
+            {% endfor %}
           </div>
         </div>
-        <div class="col">
-          <div class="card h-100">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a short card.</p>
-            </div>
-          </div>
-        </div>
-       
+      </div>
+    </div>
+
 </div>
 
 
